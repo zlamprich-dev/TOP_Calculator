@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Full viewport height */
+    margin: 0;
+    /* Remove default body margin */
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(20, 30, 88);
+    border-radius: 8px;
+    padding: 0;
+    /* Ensure there is no padding */
+    align-items: center;
+    /* Center children horizontally */
+}
+
+.display {
+    border: 1px solid #000;
+    border-radius: 8px;
+    width: 390px;
+    height: 50px;
+    background-color: white;
+    margin-top: 5px;
+    /* Ensure no margin on top */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operatorButtons {
+    display: flex;
+    border: 1px solid #0000;
+    border-radius: 8px;
+    flex-direction: column;
+}
