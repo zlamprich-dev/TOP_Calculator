@@ -10,6 +10,12 @@ body {
     /* Remove default body margin */
 }
 
+button {
+    width: 75px;
+    height: 50px;
+
+}
+
 .calc {
     display: flex;
     flex-direction: column;
@@ -37,6 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: fit-content;
 }
 
 .operatorButtons {
@@ -44,4 +51,12 @@ body {
     border: 1px solid #0000;
     border-radius: 8px;
     flex-direction: column;
+    margin-top: 10px;
+
+}
+
+.numberButtons {
+    max-width: 60%;
+    margin-top: 10px;
+
 }

@@ -14,12 +14,19 @@ let multiply = document.createElement('button')
 multiply.innerText = 'Multiply (*)'
 multiply.addEventListener('click', multiplyValues)
 
-let buttonsDiv = document.querySelector('.operatorButtons')
+let display = document.querySelector('.display')
+let opButtonsDiv = document.querySelector('.operatorButtons')
+let buttonsDiv = document.querySelector('.numberButtons')
 
-buttonsDiv.appendChild(add)
-buttonsDiv.appendChild(subtract)
-buttonsDiv.appendChild(divide)
-buttonsDiv.appendChild(multiply)
+opButtonsDiv.appendChild(add)
+opButtonsDiv.appendChild(subtract)
+opButtonsDiv.appendChild(divide)
+opButtonsDiv.appendChild(multiply)
+
+
+let numberBtnInt;
+let int1;
+let int2;
 
 
 
@@ -47,3 +54,25 @@ function multiplyValues() {
     return console.log(int1 * int2)
 }
 
+function createNumberButtons() {
+    let i = 0;
+    let clear = document.createElement('button')
+    for (i; i <= 9; i++) {
+        let btn = document.createElement('button')
+        btn.innerText = `${i}`
+        btn.id = `${i}`
+        buttonsDiv.append(btn)
+        btn.style.fontSize = 'larger'
+    }
+    clear.innerText = 'Clear'
+    buttonsDiv.append(clear)
+    clear.style.fontSize = 'larger'
+
+}
+
+
+createNumberButtons()
+btn.addEventListener('click', () => {
+    let integerOutput;
+    
+})
