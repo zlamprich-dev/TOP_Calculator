@@ -1,20 +1,11 @@
 body {
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     height: 100vh;
-    /* Full viewport height */
     margin: 0;
-    /* Remove default body margin */
 }
 
-button {
-    width: 75px;
-    height: 50px;
-
-}
 
 .calc {
     display: flex;
@@ -23,10 +14,7 @@ button {
     height: 500px;
     background-color: rgb(20, 30, 88);
     border-radius: 8px;
-    padding: 0;
-    /* Ensure there is no padding */
     align-items: center;
-    /* Center children horizontally */
 }
 
 .display {
@@ -36,27 +24,39 @@ button {
     height: 50px;
     background-color: white;
     margin-top: 5px;
-    /* Ensure no margin on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: fit-content;
+    align-items: stretch;
 }
 
 .operatorButtons {
     display: flex;
-    border: 1px solid #0000;
+    border: 1px solid #000;
     border-radius: 8px;
     flex-direction: column;
     margin-top: 10px;
 
 }
 
+.operatorButtons button {
+    height: 85px;
+}
+
 .numberButtons {
-    max-width: 60%;
     margin-top: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.numberButtons button {
+    width: 25%;
+    height: 142px;
 
 }

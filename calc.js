@@ -1,78 +1,69 @@
-let add = document.createElement('button')
-add.innerText = 'Add (+)'
-add.addEventListener('click', addValues)
+let display = document.querySelector('.display');
+let opButtonsDiv = document.querySelector('.operatorButtons');
+let buttonsDiv = document.querySelector('.numberButtons');
 
-let subtract = document.createElement('button')
-subtract.innerText = 'Subtract (-)'
-subtract.addEventListener('click', subtractValues)
+let currentInput = "";
 
-let divide = document.createElement('button')
-divide.innerText = 'Divide (/)'
-divide.addEventListener('click', divideValues)
+let equalsBtn = document.createElement('button')
+equalsBtn.innerText = 'Equals (=)'
+equalsBtn.addEventListener('click', evalInput)
+opButtonsDiv.appendChild(equalsBtn)
 
-let multiply = document.createElement('button')
-multiply.innerText = 'Multiply (*)'
-multiply.addEventListener('click', multiplyValues)
-
-let display = document.querySelector('.display')
-let opButtonsDiv = document.querySelector('.operatorButtons')
-let buttonsDiv = document.querySelector('.numberButtons')
-
-opButtonsDiv.appendChild(add)
-opButtonsDiv.appendChild(subtract)
-opButtonsDiv.appendChild(divide)
-opButtonsDiv.appendChild(multiply)
-
-
-let numberBtnInt;
-let int1;
-let int2;
-
-
-
-function addValues() {
-    let int1 = parseInt(prompt("Please enter your first value"))
-    let int2 = parseInt(prompt("Please enter your second value"))
-    return console.log(int1 + int2)
+// Function to update display
+function updateDisplay() {
+    display.innerText = currentInput;
+    console.log(currentInput)
 }
 
-function subtractValues() {
-    let int1 = parseInt(prompt("Please enter your first value"))
-    let int2 = parseInt(prompt("Please enter your second value"))
-    return console.log(int1 - int2)
+function evalInput() {
+    let result = eval(currentInput)
+    currentInput = `${result}`
+    updateDisplay();
 }
 
-function divideValues() {
-    let int1 = parseInt(prompt("Please enter your first value"))
-    let int2 = parseInt(prompt("Please enter your second value"))
-    return console.log(int1 / int2)
+// Function to clear display
+function clearDisplay() {
+    currentInput = "";
+    updateDisplay();
 }
 
-function multiplyValues() {
-    let int1 = parseInt(prompt("Please enter your first value"))
-    let int2 = parseInt(prompt("Please enter your second value"))
-    return console.log(int1 * int2)
-}
+// Create operator buttons
+let operators = [
+    { text: 'Add (+)', id: 'add', func: () => currentInput += '+' },
+    { text: 'Subtract (-)', id: 'subtract', func: () => currentInput += '-' },
+    { text: 'Divide (/)', id: 'divide', func: () => currentInput += '/' },
+    { text: 'Multiply (*)', id: 'multiply', func: () => currentInput += '*' }
+];
 
+operators.forEach(op => {
+    let button = document.createElement('button');
+    button.innerText = op.text;
+    button.addEventListener('click', () => {
+        op.func();
+        updateDisplay();
+    });
+    opButtonsDiv.appendChild(button);
+});
+
+// Create number buttons
 function createNumberButtons() {
-    let i = 0;
-    let clear = document.createElement('button')
-    for (i; i <= 9; i++) {
-        let btn = document.createElement('button')
-        btn.innerText = `${i}`
-        btn.id = `${i}`
-        buttonsDiv.append(btn)
-        btn.style.fontSize = 'larger'
+    for (let i = 0; i <= 9; i++) {
+        let btn = document.createElement('button');
+        btn.innerText = `${i}`;
+        btn.id = `${i}`;
+        btn.addEventListener('click', () => {
+            currentInput += i;
+            updateDisplay();
+        });
+        buttonsDiv.appendChild(btn);
     }
-    clear.innerText = 'Clear'
-    buttonsDiv.append(clear)
-    clear.style.fontSize = 'larger'
 
+    let clear = document.createElement('button');
+    clear.innerText = 'Clear';
+    clear.addEventListener('click', clearDisplay);
+    buttonsDiv.appendChild(clear);
 }
 
 
-createNumberButtons()
-btn.addEventListener('click', () => {
-    let integerOutput;
-    
-})
+
+createNumberButtons();
